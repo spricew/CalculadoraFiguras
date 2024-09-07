@@ -44,12 +44,21 @@ main{
 header{
     width: 100%;
     height: 15%;
+    display: flex;
+    align-items: center;
     padding: 1.6rem 2rem;
     background-color: var(--bg-color);
     border: var(--border-solid);
 }
 
+#shapesIcon{
+    width: 2rem;
+    height: auto;
+    margin-right: 1rem;
+}
+
 #main-title{
+    width: fit-content;
     color: var(--dark-text);
     font-weight: 600;
     font-size: 1.2rem;
@@ -71,6 +80,10 @@ header{
     scale: 1.1;
     background-color: var(--highlight);   
 }
+
+.btn:focus{
+    outline: none;
+    }
 
 #buttons{
     width: 28rem;
