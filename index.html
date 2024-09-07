@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Normalize css-->
+        <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+        <!--Main css-->
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <!--Librería de iconos de google-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!--Javascript-->
+        <script defer src="scripts/main.js"></script>
+    
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <title>Calculadora</title>
+    </head>
+<body>
+
+    <header>
+        <nav><h1 id="main-title">Figuras</h1></nav>
+    </header>
+
+    <main>
+        <section id="buttons">
+            <button class="btn" id="btnCircle">Círculo</button>
+            <button class="btn"> Rectángulo</button>
+            <button class="btn"> Cuadrado</button>
+            <button class="btn"> Triángulo</button>
+        </section>
+        
+        <section id="content">
+
+            <div class="figure-card" id="cardCircle">
+                <h2 class="title">Circulo</h2>
+                <label for="lblRadioCircle">Radio:</label>
+                <input type="number" id="inpRadioCircle">
+                <button class="btn" id="btnCalcCircle">Calcular</button>  
+                <div class="calc-container" id="calcCircle">
+                    <div>
+                        <span class="answer">Perímetro:</span><span id="CircleBlankPerimetro" class="blanks"></span>
+                    </div>
+                    <div>
+                        <span class="answer">Área:</span><span id="CircleBlankArea" class="blanks"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="figure-card" id="cardRectangle">
+                <h2 class="title">Rectángulo</h2>
+                <div id="filler">
+                    <label for="inpBaseRec">Base:</label>
+                    <input type="number" id="inpBaseRec">
+                </div>
+                <div>
+                    <label for="inpAlturaRec">Altura:</label>
+                    <input type="number" id="inpAlturaRec">
+                </div>
+          
+                <button class="btn" id="btnCalcRec">Calcular</button>  
+                <div class="calc-container" id="calcRec">
+                    <div>
+                        <span class="answer">Perímetro:</span><span id="RecBlankPerimetro" class="blanks"></span>
+                    </div>
+                    <div>
+                        <span class="answer">Área:</span><span id="RecBlankArea" class="blanks"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="figure-card" id="cardSquare">
+                <h2 class="title">Cuadrado</h2>
+                <label for="inpLadoCuad">Medida de lado:</label>
+                <input type="number" id="inpLadoCuad">
+                <button class="btn" id="btnCalcCuad">Calcular</button>  
+                <div class="calc-container" id="calcCuad">
+                    <div>
+                        <span class="answer">Perímetro:</span><span id="CuadBlankPerimetro" class="blanks"></span>
+                    </div>
+                    <div>
+                        <span class="answer">Área:</span><span id="CuadBlankArea" class="blanks"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="figure-card" id="cardTri">
+                <h2 class="title">Triángulo</h2>
+
+                <div class="idk">
+                    <label for="inpLadoA">Medida del primer lado:</label>
+                    <input type="number" id="inpLadoA">
+                </div>
+                
+                <div class="idk">
+                    <label for="inpLadoB">Medida del segundo lado:</label>
+                    <input type="number" id="inpLadoB">
+                </div>
+
+                <div class="idk">
+                    <label for="inpLadoC">Medida del tercer lado:</label>
+                    <input type="number" id="inpLadoC">
+                </div>
+
+                <button class="btn" id="btnCalcTrian">Calcular</button>  
+
+                <div class="calc-container" id="calcCuad">
+                    <div>
+                        <span class="answer">Perímetro:</span><span id="TrianBlankPerimetro" class="blanks"></span>
+                    </div>
+                    <div>
+                        <span class="answer">Área:</span><span id="TrianBlankArea" class="blanks"></span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
