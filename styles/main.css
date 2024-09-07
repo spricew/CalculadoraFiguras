@@ -29,10 +29,11 @@ body{
 }
 
 main{
-    min-height: 100vh;
+    min-height: 30.49rem;
     padding: 3rem 5rem;
     display: flex;
-    align-items: center ;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     background-color: var(--bg-color);
 }
@@ -152,4 +153,12 @@ input:focus{
 
 #btnCalcTrian{
     margin-top: 0.4rem;
+}
+
+.visible{
+    display: block;
+}
+
+.hidden{
+    display: none;
 }
