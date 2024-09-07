@@ -1,5 +1,78 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const VisibleCircle = document.getElementById('btnCircle');
+    const CircleCard = document.getElementById('cardCircle');
+
+    const VisibleRec = document.getElementById('btnRec');
+    const RecCard = document.getElementById('cardRectangle');
+
+    const VisibleSquad = document.getElementById('btnSquare');
+    const SquadCard = document.getElementById('cardSquare');
+
+    const VisibleTri = document.getElementById('btnTri')
+    const TrianCard = document.getElementById('cardTri');
+
+    VisibleCircle.addEventListener('click', function() {
+
+        RecCard.classList.remove('visible');
+        RecCard.classList.add('hidden');
+
+        TrianCard.classList.remove('visible');
+        TrianCard.classList.add('hidden');
+
+        SquadCard.classList.remove('visible');
+        SquadCard.classList.add('hidden');
+
+        CircleCard.classList.remove('hidden');
+        CircleCard.classList.add('visible');
+    });
+
+    VisibleRec.addEventListener('click', function() {
+
+        TrianCard.classList.remove('visible');
+        TrianCard.classList.add('hidden');
+
+        SquadCard.classList.remove('visible');
+        SquadCard.classList.add('hidden');
+
+        CircleCard.classList.remove('visible');
+        CircleCard.classList.add('hidden');
+
+        RecCard.classList.remove('hidden');
+        RecCard.classList.add('visible');
+    });
+
+    VisibleSquad.addEventListener('click', function() {
+
+        TrianCard.classList.remove('visible');
+        TrianCard.classList.add('hidden');
+
+        CircleCard.classList.remove('visible');
+        CircleCard.classList.add('hidden');
+
+        RecCard.classList.remove('visible');
+        RecCard.classList.add('hidden');
+
+        SquadCard.classList.remove('hidden');
+        SquadCard.classList.add('visible');
+    });
+    
+    VisibleTri.addEventListener('click', function() {
+
+        CircleCard.classList.remove('visible');
+        CircleCard.classList.add('hidden');
+
+        RecCard.classList.remove('visible');
+        RecCard.classList.add('hidden');
+
+        SquadCard.classList.remove('visible');
+        SquadCard.classList.add('hidden');
+
+        TrianCard.classList.remove('hidden');
+        TrianCard.classList.add('visible');
+    });
+    //////////////////////////////////////////////////////////////
+
     const radioCircle = document.getElementById('inpRadioCircle');
     const calcularCircle = document.getElementById('btnCalcCircle');
     const spanCircleArea = document.getElementById('CircleBlankArea');
