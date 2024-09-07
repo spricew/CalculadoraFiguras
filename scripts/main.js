@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const VisibleTri = document.getElementById('btnTri')
     const TrianCard = document.getElementById('cardTri');
 
-    VisibleCircle.addEventListener('click', function() {
+    VisibleCircle.addEventListener('click', function () {
 
         RecCard.classList.remove('visible');
         RecCard.classList.add('hidden');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         CircleCard.classList.add('visible');
     });
 
-    VisibleRec.addEventListener('click', function() {
+    VisibleRec.addEventListener('click', function () {
 
         TrianCard.classList.remove('visible');
         TrianCard.classList.add('hidden');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         RecCard.classList.add('visible');
     });
 
-    VisibleSquad.addEventListener('click', function() {
+    VisibleSquad.addEventListener('click', function () {
 
         TrianCard.classList.remove('visible');
         TrianCard.classList.add('hidden');
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
         SquadCard.classList.remove('hidden');
         SquadCard.classList.add('visible');
     });
-    
-    VisibleTri.addEventListener('click', function() {
+
+    VisibleTri.addEventListener('click', function () {
 
         CircleCard.classList.remove('visible');
         CircleCard.classList.add('hidden');
@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         TrianCard.classList.remove('hidden');
         TrianCard.classList.add('visible');
     });
+
     //////////////////////////////////////////////////////////////
 
     const radioCircle = document.getElementById('inpRadioCircle');
@@ -81,10 +82,19 @@ document.addEventListener('DOMContentLoaded', function () {
     let CirculoPerimetro; // 2 * PI * RADIO
 
     calcularCircle.addEventListener('click', function () {
-        CirculoArea = Math.PI * (Math.pow(radioCircle.value, 2));
-        spanCircleArea.innerHTML = `${CirculoArea.toFixed(5)}`;
-        CirculoPerimetro = 2 * Math.PI * radioCircle.value;
-        spanCirclePerimetro.innerHTML = `${CirculoPerimetro.toFixed(5)}`;
+        const radio = parseFloat(radioCircle.value); 
+
+        if (radio <= 0 || isNaN(radio)) {
+            radioCircle.value = ''; 
+            alert('El radio debe ser mayor a 0');
+        } else {
+            
+            const CirculoArea = Math.PI * Math.pow(radio, 2);
+            spanCircleArea.innerHTML = `${CirculoArea.toFixed(5)}`;
+
+            const CirculoPerimetro = 2 * Math.PI * radio;
+            spanCirclePerimetro.innerHTML = `${CirculoPerimetro.toFixed(5)}`;
+        }
     });
 
     const calcularRec = document.getElementById('btnCalcRec');
