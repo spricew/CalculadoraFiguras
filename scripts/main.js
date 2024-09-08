@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let CirculoPerimetro; // 2 * PI * RADIO
 
     calcularCircle.addEventListener('click', function () {
-        const radio = parseFloat(radioCircle.value); 
+        const radio = parseFloat(radioCircle.value);
 
         if (radio <= 0 || isNaN(radio)) {
-            radioCircle.value = ''; 
+            radioCircle.value = '';
             alert('El radio debe ser mayor a 0');
         } else {
-            
+
             const CirculoArea = Math.PI * Math.pow(radio, 2);
             spanCircleArea.innerHTML = `${CirculoArea.toFixed(5)}`;
 
@@ -105,15 +105,32 @@ document.addEventListener('DOMContentLoaded', function () {
     let RecPerimetro;
 
     calcularRec.addEventListener('click', function () {
-        const baseRec = parseFloat(document.getElementById('inpBaseRec').value);
-        const alturaRec = parseFloat(document.getElementById('inpAlturaRec').value);
+        const baseRecInput = document.getElementById('inpBaseRec');
+        const alturaRecInput = document.getElementById('inpAlturaRec');
+        const baseRec = parseFloat(baseRecInput.value);
+        const alturaRec = parseFloat(alturaRecInput.value);
 
-        RecPerimetro = (baseRec * 2) + (alturaRec * 2);
-        spanRecPerimetro.innerHTML = `${RecPerimetro.toFixed(5)}`;
+        if (baseRec <= 0 || isNaN(baseRec)) {
+            alert('La base debe ser mayor a 0');
+            alturaRecInput.value = '';
+            baseRecInput.value = '';
+        } else if (alturaRec <= 0 || isNaN(alturaRec)) {
+            alert('La altura debe ser mayor a 0');
+            baseRecInput.value = '';
+            alturaRecInput.value = '';
+        } else if (baseRec < alturaRec) {
+            alert('La base tiene que ser mayor a la altura');
+            baseRecInput.value = '';
+            alturaRecInput.value = '';
+        } else {
+            RecPerimetro = (baseRec * 2) + (alturaRec * 2);
+            spanRecPerimetro.innerHTML = `${RecPerimetro.toFixed(5)}`;
 
-        RecArea = baseRec * alturaRec;
-        spanRecArea.innerHTML = `${RecArea.toFixed(5)}`;
+            RecArea = baseRec * alturaRec;
+            spanRecArea.innerHTML = `${RecArea.toFixed(5)}`;
+        }
     });
+
 
     const calcularCuad = document.getElementById('btnCalcCuad');
     const ladoCuad = document.getElementById('inpLadoCuad');
@@ -123,36 +140,51 @@ document.addEventListener('DOMContentLoaded', function () {
     let CuadPerimetro;
 
     calcularCuad.addEventListener('click', function () {
-        CuadPerimetro = parseFloat(ladoCuad.value) * 4;
-        spanCuadPerimetro.innerHTML = `${CuadPerimetro.toFixed(5)}`;
 
-        CuadArea = Math.pow(ladoCuad.value, 2);
-        spanCuadArea.innerHTML = `${CuadArea.toFixed(5)}`;
+        if (lado <= 0 || isNaN(lado)) {
+            alert('La base debe ser mayor a 0');
+            ladoCuad.value = '';
+        } else {
+            CuadPerimetro = parseFloat(ladoCuad.value) * 4;
+            spanCuadPerimetro.innerHTML = `${CuadPerimetro.toFixed(5)}`;
+
+            CuadArea = Math.pow(ladoCuad.value, 2);
+            spanCuadArea.innerHTML = `${CuadArea.toFixed(5)}`;
+        }
+
     });
 
     const calcularTrian = document.getElementById('btnCalcTrian');
-    const ladoA = document.getElementById('inpLadoA');
-    const ladoB = document.getElementById('inpLadoB');
-    const ladoC = document.getElementById('inpLadoC');
+    const ladoAInput = document.getElementById('inpLadoA');
+    const ladoBInput = document.getElementById('inpLadoB');
+    const ladoCInput = document.getElementById('inpLadoC');
     const spanTrianPerimetro = document.getElementById('TrianBlankPerimetro');
     const spanTrianArea = document.getElementById('TrianBlankArea');
-    let TrianPerimetro;
-    let TrianArea;
-    let semiperimetro;
 
     calcularTrian.addEventListener('click', function () {
+        const ladoA = parseFloat(ladoAInput.value);
+        const ladoB = parseFloat(ladoBInput.value);
+        const ladoC = parseFloat(ladoCInput.value);
 
-        const ladoANum = parseFloat(ladoA.value);
-        const ladoBNum = parseFloat(ladoB.value);
-        const ladoCNum = parseFloat(ladoC.value);
+        if (ladoA <= 0 || isNaN(ladoA) || ladoB <= 0 || isNaN(ladoB) || ladoC <= 0 || isNaN(ladoC)) {
+            alert('Todos los lados deben ser números mayores a 0');
+            if (ladoA <= 0 || isNaN(ladoA)) ladoAInput.value = ''; 
+            if (ladoB <= 0 || isNaN(ladoB)) ladoBInput.value = ''; 
+            if (ladoC <= 0 || isNaN(ladoC)) ladoCInput.value = ''; 
+        } else if (ladoA + ladoB <= ladoC || ladoA + ladoC <= ladoB || ladoB + ladoC <= ladoA) {
+            alert('Las medidas proporcionadas no forman un triángulo');
+            ladoAInput.value = ''; 
+            ladoBInput.value = ''; 
+            ladoCInput.value = ''; 
+        } else {
+           
+            const TrianPerimetro = ladoA + ladoB + ladoC;
+            spanTrianPerimetro.innerHTML = `${TrianPerimetro.toFixed(5)}`;
 
-        TrianPerimetro = ladoANum + ladoBNum + ladoCNum;
-        spanTrianPerimetro.innerHTML = `${TrianPerimetro.toFixed(5)}`;
-
-        semiperimetro = (ladoANum + ladoBNum + ladoCNum) / 2;
-        TrianArea = Math.sqrt(semiperimetro * (semiperimetro - ladoANum) * (semiperimetro - ladoBNum) * (semiperimetro - ladoCNum))
-        spanTrianArea.innerHTML = `${TrianArea.toFixed(5)}`;
-
+            const s = TrianPerimetro / 2;
+            const TrianArea = Math.sqrt(s * (s - ladoA) * (s - ladoB) * (s - ladoC));
+            spanTrianArea.innerHTML = `${TrianArea.toFixed(5)}`;
+        }
     });
 
 });
