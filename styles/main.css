@@ -111,6 +111,22 @@ header{
     border: var(--border-solid);
 }
 
+.tit-card{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.shape{
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+#rec{
+    width: 3.2rem;
+    height: 2rem;
+}
+
 input{
     width: 8rem;
     font-size: 0.8rem;
@@ -131,7 +147,6 @@ input:focus{
 
 .title{
     font-weight: 600;
-    margin-bottom: 2rem;
 }
 
 input:focus{

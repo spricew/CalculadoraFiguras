@@ -118,8 +118,8 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('La altura debe ser mayor a 0');
             baseRecInput.value = '';
             alturaRecInput.value = '';
-        } else if (baseRec < alturaRec) {
-            alert('La base tiene que ser mayor a la altura');
+        } else if (baseRec === alturaRec) {
+            alert('La base y la altura no pueden tener la misma medida');
             baseRecInput.value = '';
             alturaRecInput.value = '';
         } else {
@@ -140,19 +140,20 @@ document.addEventListener('DOMContentLoaded', function () {
     let CuadPerimetro;
 
     calcularCuad.addEventListener('click', function () {
-
+        const lado = parseFloat(ladoCuad.value); 
+    
         if (lado <= 0 || isNaN(lado)) {
-            alert('La base debe ser mayor a 0');
+            alert('El lado debe ser mayor a 0');
             ladoCuad.value = '';
         } else {
-            CuadPerimetro = parseFloat(ladoCuad.value) * 4;
+            CuadPerimetro = lado * 4;
             spanCuadPerimetro.innerHTML = `${CuadPerimetro.toFixed(5)}`;
-
-            CuadArea = Math.pow(ladoCuad.value, 2);
+    
+            CuadArea = Math.pow(lado, 2);
             spanCuadArea.innerHTML = `${CuadArea.toFixed(5)}`;
         }
-
     });
+    
 
     const calcularTrian = document.getElementById('btnCalcTrian');
     const ladoAInput = document.getElementById('inpLadoA');
